@@ -1,5 +1,5 @@
 #$______________________________________________________________________________
-#Importing the librarys
+#Importing the libraries
 
 library(curl)
 library(rvest)
