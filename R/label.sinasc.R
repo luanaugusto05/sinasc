@@ -13,7 +13,6 @@ label.sinasc <- function(x){
   require(foreign)
   require(dplyr)
   require(lubridate)
-  require(zip)
 
   base <- x %>%
     select(CODESTAB,CODMUNNASC,LOCNASC,IDADEMAE,ESTCIVMAE,ESCMAE,CODOCUPMAE,QTDFILVIVO,QTDFILMORT,CODMUNRES,GESTACAO,GRAVIDEZ,
@@ -62,6 +61,8 @@ label.sinasc <- function(x){
     )
 
   base$CODOCUPMAE <- gsub("^0+","",base$CODOCUPMAE)
+
+  base$CODOCUPMAE <- as.integer(base$CODOCUPMAE)
 
   base <- base %>%
     left_join(ocup,by=join_by(CODOCUPMAE==CODIGO),keep = F)

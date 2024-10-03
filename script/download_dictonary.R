@@ -25,6 +25,5 @@ download.file("https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/cbo/servicos
 temp_dir <- tempdir()
 unzip(temp,files = c("CBO2002 - Ocupacao.csv"),exdir = temp_dir)
 ocup <- read.csv2(paste0(temp_dir,"\\CBO2002 - Ocupacao.csv"))
-ocup$CODIGO <- as.factor(ocup$CODIGO)
 
 usethis::use_data(CADMUN,CID10,TABUF,ocup, overwrite = T)
