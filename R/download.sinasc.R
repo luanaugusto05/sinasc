@@ -31,7 +31,7 @@ download.sinasc <- function(inicio,fim=as.numeric(format(Sys.Date(), "%Y"))-1,UF
   }
   for (i in 1:length(urls)) {
     temp <- tempfile(fileext = ".dbc")
-    download.file(urls[i], destfile = temp, mode = "wb", method = "libcurl")
+    download.file(urls[i], destfile = temp, mode = "wb", method = "wininet")
     data <- read.dbc(temp)
     db <- bind_rows(db,data)
   }
